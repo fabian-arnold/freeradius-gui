@@ -1,0 +1,6 @@
+<?
+$config["ssh_host"] = "127.0.0.1";
+$SSH_HOST = "127.0.0.1";
+$SSH_USER = "test";
+$SSH_PASSWORD = "test123";
+?>
