@@ -14,4 +14,4 @@ Um zu testen ob das ganze läuft:
 <pre>
 php -m |grep ssh2
 </pre>
-Falls der Befehl <pre>ssh2</pre> zurückgibt ist die Extension richtig installiert.
+Falls der Befehl ssh2 zurückgibt ist die Extension richtig installiert.
