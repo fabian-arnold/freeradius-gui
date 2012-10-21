@@ -45,9 +45,10 @@
           </a>
           <a class="brand" onclick="javascript:location.reload()" href="#">RADIUS - Übersicht</a>
           <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Login deaktiviert.
+            <p id="status" class="navbar-text pull-right">
+              Status nicht verfügbar.
             </p>
+            
             <ul id="navigation_top" class="nav">
               <!-- Per ajax geldaen vgl /ajax/navigation.php-->
             </ul>
@@ -61,22 +62,21 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
+              <li class="nav-header">RADIUS</li>
+	              <li><a onclick="$('#content').load('./phpcore/restart.php')" href="#">neustarten</a></li>
+	              <li><a onclick="$('#content').load('./phpcore/start.php')" href="#">starten</a></li>
+	              <li><a onclick="$('#content').load('./phpcore/stop.php')" href="#">stoppen</a></li>
               <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
               <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
+	              <li><a href="#">Link</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -99,6 +99,18 @@
     
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
+	<script>
+    	$(document).ready(function() {
+			refreshState();
+		});
+		function refreshState(){
+			$("#status").load("phpcore/status.php?type=isrunning");
+			setTimeout('refreshState()', 1000);
+		}
+		$(document).scroll(function() {
+			$('.sidebar-nav').css("marginTop",  $(window).scrollTop());
+		});
+    </script>
 
   </body>
 </html>

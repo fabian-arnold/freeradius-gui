@@ -8,6 +8,5 @@
 		$("#navigation_top li").removeClass("active");
 		$(this).parent().addClass("active");
 		$("#content").load("ajax/"+$(this).data("href"));
-		StopTimer();
 	});
 </script>

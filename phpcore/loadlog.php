@@ -1,11 +1,10 @@
-<?
+<?php
+include ('core.php');
+
 
 function LoadLog(){
-$data = file_get_contents("/var/log/freeradius/radius.log");
-if($data==""){
-	return "Fehler beim Laden des Logs versuch: sudo chmod -R 777 /var/log/freeradius/";
+	include ('../config.php');
+	header('Content-Type: text/plain');
+	echo runSSHcommand("echo ".$config["ssh_password"]." | sudo -S cat /var/log/freeradius/radius.log");
 }
-return $data;
-}
-
 ?>
