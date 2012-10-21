@@ -16,11 +16,10 @@
 	}
 
 function isRunning(){
-	include ('../config.php');
 	header('Content-Type: text/plain');
 	//echo "echo ".$config["ssh_password"]." | sudo -S service freeradius start";
 	//echo '<pre style="background: #300924; border-radius: 5px; color: #FFF9FF; padding: 10px;">';
-	$return = runSSHcommand("ps -fC freeradius");
+	$return = FRW_Core::runSSHcommand("ps -fC freeradius");
 	if(sizeof(preg_split("/(\n|\r|\r\n)/", ($return)))>2){
 		return TRUE;
 	}else{

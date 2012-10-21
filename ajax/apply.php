@@ -1,4 +1,8 @@
 
 <?
-shell_exec("echo test | sudo -S /etc/init.d/freeradius start")
+include '../phpcore/core.php';
+echo "<pre>";
+echo ServerControl::restartRADIUS();
+echo "</pre>";
+echo "Änderungen übernommen"
 ?>

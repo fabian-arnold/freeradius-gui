@@ -2,7 +2,7 @@
 <?
 include '../phpcore/loadlog.php';
 //$log = str_replace( "\n","<br>",LoadLog());
-$log = array_reverse(split("\n", LoadLog()));
+$log = split("\n", LoadLog());
 foreach ($log as $line) print "&raquo;". $line."<br>";
 ?>
 </pre>
